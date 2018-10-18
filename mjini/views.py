@@ -25,4 +25,7 @@ def profile(request):
 
 
 @login_required(login_url='/accounts/login/')
-def
+def hood(request,hood_id):
+    hood = Hood.get_hood(id = hood_id)
+
+    return render(request,'hood.html')

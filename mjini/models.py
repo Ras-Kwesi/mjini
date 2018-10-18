@@ -28,7 +28,17 @@ class Hood(models.Model):
     residents = models.IntegerField(default=1)
     county = models.CharField(max_length=20)
 
+    def save_hood(self):
+        self.save()
 
+    def remove_hood(self):
+        self.delete()
+
+
+    @classmethod
+    def get_hood(cls,id):
+        hood = Hood.objects.get(id=id)
+        return hood
 
 class Business(models.Model):
     name = models.CharField(max_length=20)
