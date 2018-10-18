@@ -25,3 +25,4 @@ def profile(request):
 
 
 @login_required(login_url='/accounts/login/')
+def
