@@ -22,3 +22,6 @@ def profile(request):
     businesses = Business.objects.filter(owner = current_user)
 
     return render(request, 'profile.html', {'profile': profile, 'businesses': businesses})
+
+
+@login_required(login_url='/accounts/login/')
