@@ -29,3 +29,5 @@ def hood(request,hood_id):
     hood = Hood.get_hood(id = hood_id)
 
     return render(request,'hood.html')
+
+

@@ -40,6 +40,8 @@ class Hood(models.Model):
         hood = Hood.objects.get(id=id)
         return hood
 
+
+
 class Business(models.Model):
     name = models.CharField(max_length=20)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
