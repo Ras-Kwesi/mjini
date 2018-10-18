@@ -30,4 +30,19 @@ def hood(request,hood_id):
 
     return render(request,'hood.html')
 
+@login_required(login_url='/accounts/login/')
+def search(request):
+
+    if 'project' in request.GET and request.GET["project"]:
+        search_query = request.GET.get("project")
+        searched_projects = Project.objects.filter(projectname=search_query)
+        print (search_query)
+        message = f"{search_query}"
+        print(searched_projects)
+
+        return render(request, 'search.html',{"message":message,"projects": searched_projects})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
 
