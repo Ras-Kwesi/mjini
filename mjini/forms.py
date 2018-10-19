@@ -12,3 +12,10 @@ class EditUser(forms.ModelForm):
         model = User
         exclude = []
         fields = ['first_name','last_name', 'email']
+
+
+class AddBusiness(forms.ModelForm):
+    class Meta:
+        model = Business
+        exclude = ['owner',]
+        fields = ['name','locale','']

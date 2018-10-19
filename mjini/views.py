@@ -68,3 +68,17 @@ def search(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
 
+@login_required(login_url='/accounts/login/')
+def new_biz(request):
+    current_user = request.user
+    if request.method == 'POST':
+        addBizForm = AddBusiness(request.POST, request.FILES, instance=request.user)
+        if addBizForm.is_valid():
+            addBizForm.save()
+        return redirect('index')
+
+    else:
+        addBizForm = AddBusiness(instance=request.user)
+    return render(request, 'update_profile.html', {
+        "addBusinessForm": addBizForm
+    })
