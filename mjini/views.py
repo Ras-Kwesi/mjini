@@ -40,7 +40,7 @@ def search(request):
         message = f"{search_query}"
         print(searched_business)
 
-        return render(request, 'search.html',{"message":message,"projects": searched_projects})
+        return render(request, 'search.html',{"message":message,"businesses": searched_business})
 
     else:
         message = "You haven't searched for any term"
