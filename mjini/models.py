@@ -41,9 +41,14 @@ class Hood(models.Model):
         return hood
 
 
-
 class Business(models.Model):
     name = models.CharField(max_length=20)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     locale = models.ForeignKey(Hood,related_name='location')
     category = models.CharField(max_length=20)
+    business_number = models.IntegerField(default=0)
+
+    @classmethod
+    def get_business(cls, name):
+        business = Business.objects.get(name=name)
+        return business

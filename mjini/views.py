@@ -33,12 +33,12 @@ def hood(request,hood_id):
 @login_required(login_url='/accounts/login/')
 def search(request):
 
-    if 'project' in request.GET and request.GET["project"]:
-        search_query = request.GET.get("project")
-        searched_projects = Project.objects.filter(projectname=search_query)
+    if 'business' in request.GET and request.GET["business"]:
+        search_query = request.GET.get("business")
+        searched_business = Business.get_business(name=search_query)
         print (search_query)
         message = f"{search_query}"
-        print(searched_projects)
+        print(searched_business)
 
         return render(request, 'search.html',{"message":message,"projects": searched_projects})
 
