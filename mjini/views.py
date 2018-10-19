@@ -86,11 +86,11 @@ def new_biz(request):
 def newpost(request):
     current_user = request.user
     if request.method == 'POST':
-        addBizForm = AddBusiness(request.POST, request.FILES, instance=request.user)
-        if addBizForm.is_valid():
-            addBizForm.save()
+        newPostForm = NewPost(request.POST, request.FILES, instance=request.user)
+        if newPostForm.is_valid():
+            newPostForm.save()
         return redirect('index')
 
     else:
-        addBizForm = AddBusiness(instance=request.user)
-    return render(request, 'add_business.html', {"addBusinessForm": addBizForm})
+        newPostForm = NewPost(instance=request.user)
+    return render(request, 'add_business.html', {"addBusinessForm": newPostForm})
