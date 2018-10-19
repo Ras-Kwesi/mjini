@@ -17,10 +17,10 @@ class EditUser(forms.ModelForm):
 class AddBusiness(forms.ModelForm):
     class Meta:
         model = Business
-        exclude = ['owner','locale']
+        exclude = ['owner']
 
 
 class NewPost(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ['hood','poster']
+        exclude = [,'poster']
