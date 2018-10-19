@@ -11,7 +11,7 @@ class Profile(models.Model):
     profilepic = models.ImageField(upload_to='picture/',blank=True)
     contact = models.CharField(max_length=15,blank=True)
     hoodpin = models.BooleanField(default=False)
-    hood = models.
+    hood = models.ForeignKey()
 
     @receiver(post_save,sender=User)
     def create_user_profile(sender,instance,created,**kwargs):
