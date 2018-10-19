@@ -11,6 +11,7 @@ class Profile(models.Model):
     profilepic = models.ImageField(upload_to='picture/',blank=True)
     contact = models.CharField(max_length=15,blank=True)
     hoodpin = models.BooleanField(default=False)
+    hood = models.
 
     @receiver(post_save,sender=User)
     def create_user_profile(sender,instance,created,**kwargs):
@@ -47,6 +48,10 @@ class Post(models.Model):
     hood = models.ForeignKey(Hood,related_name='hood')
     poster = models.ForeignKey(User,related_name='poster')
 
+    @classmethod
+    def get_hood_posts(cls,hood_name):
+        posts = Post.objects.filter(hood__name = hood_name )
+        return posts
 
 class Business(models.Model):
     name = models.CharField(max_length=20)

@@ -47,8 +47,8 @@ def update(request):
     })
 
 @login_required(login_url='/accounts/login/')
-def hood(request,hood_id):
-    hood = Hood.get_hood(id = hood_id)
+def hood(request,hood_name):
+    hood = Post.get_hood_posts(hood_name = hood_name)
 
     return render(request,'hood.html',{'hood':hood})
 
@@ -70,6 +70,20 @@ def search(request):
 
 @login_required(login_url='/accounts/login/')
 def new_biz(request):
+    current_user = request.user
+    if request.method == 'POST':
+        addBizForm = AddBusiness(request.POST, request.FILES, instance=request.user)
+        if addBizForm.is_valid():
+            addBizForm.save()
+        return redirect('index')
+
+    else:
+        addBizForm = AddBusiness(instance=request.user)
+    return render(request, 'add_business.html', {"addBusinessForm": addBizForm})
+
+
+@login_required(login_url='/accounts/login/')
+def newpost(request):
     current_user = request.user
     if request.method == 'POST':
         addBizForm = AddBusiness(request.POST, request.FILES, instance=request.user)
