@@ -79,6 +79,4 @@ def new_biz(request):
 
     else:
         addBizForm = AddBusiness(instance=request.user)
-    return render(request, 'update_profile.html', {
-        "addBusinessForm": addBizForm
-    })
+    return render(request, 'add_business.html', {"addBusinessForm": addBizForm})

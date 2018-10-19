@@ -17,5 +17,4 @@ class EditUser(forms.ModelForm):
 class AddBusiness(forms.ModelForm):
     class Meta:
         model = Business
-        exclude = ['owner',]
-        fields = ['name','locale','']
+        exclude = ['owner']

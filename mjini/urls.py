@@ -9,4 +9,6 @@ urlpatterns=[
     url('profile/$', views.profile, name='profile'),
     # url('^new_post/', views.new_post, name='new_post'),
     url('update/$', views.update, name='update'),
+    url('addbiz/$', views.new_biz, name='addbiz'),
+
 ]
