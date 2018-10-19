@@ -18,9 +18,14 @@
     {% for business in businesses %}
     <div class="col-sm-6 col-md-3">
       <div class="card">
-        <h1 class="card-header">{{business.user.username}}</h1>
-        <p class="card-header">{{business.overview | truncatechars:10}}</p>
-        <a href="/stalk/{{business.user_id}}">View Profile</a>
+        <h1 class="card-header">{{business.name}}</h1>
+        <p class="card-header">{{business.business_description | truncatechars:30}}</p>
+        <p class="card-text">{{business.locale}}</p>
+
+        <a href="/business/{{business.id}}">View Business Posts</a>
+          <div class="card-footer bg-transparent border-danger">
+                <p>{{business.business_number}}</p>
+            </div>
       </div>
     </div>
     {% endfor %}
