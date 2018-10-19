@@ -50,7 +50,7 @@ def update(request):
 def hood(request,hood_id):
     hood = Hood.get_hood(id = hood_id)
 
-    return render(request,'hood.html')
+    return render(request,'hood.html',{'hood':hood})
 
 @login_required(login_url='/accounts/login/')
 def search(request):

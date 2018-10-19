@@ -10,6 +10,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=100, blank=True)
     profilepic = models.ImageField(upload_to='picture/',blank=True)
     contact = models.CharField(max_length=15,blank=True)
+    hoodpin = models.BooleanField(default=False)
 
     @receiver(post_save,sender=User)
     def create_user_profile(sender,instance,created,**kwargs):
@@ -24,7 +25,7 @@ class Profile(models.Model):
         return self.user.username
 
 class Hood(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20,unique=True)
     residents = models.IntegerField(default=1)
     county = models.CharField(max_length=20)
 
@@ -40,11 +41,17 @@ class Hood(models.Model):
         hood = Hood.objects.get(id=id)
         return hood
 
+class Post(models.Model):
+    title = models.CharField(max_length=30)
+    post = models.TextField(max_length=100)
+    hood = models.ForeignKey(Hood,related_name='hood')
+    poster = models.ForeignKey(User,related_name='poster')
+
 
 class Business(models.Model):
     name = models.CharField(max_length=20)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    business_description = models.CharField(max_length=80)
+    business_description = models.TextField(max_length=80)
     locale = models.ForeignKey(Hood,related_name='location')
     # category = models.CharField(max_length=20)
     business_number = models.IntegerField(default=0)
