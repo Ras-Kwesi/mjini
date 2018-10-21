@@ -24,3 +24,9 @@ class NewPost(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ['hood','poster']
+
+
+class NewHood(forms.ModelForm):
+    class Meta:
+        model = Hood
+        exclude = []

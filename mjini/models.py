@@ -7,8 +7,8 @@ from django.db.models.signals import post_save
 # Create your models here.
 class Hood(models.Model):
     name = models.CharField(max_length=20,unique=True)
-    residents = models.IntegerField(default=1)
-    county = models.CharField(max_length=20)
+    bio = models.CharField(max_length=40,default = name)
+
 
     def save_hood(self):
         self.save()
@@ -30,7 +30,7 @@ class Profile(models.Model):
     profilepic = models.ImageField(upload_to='picture/',blank=True)
     contact = models.CharField(max_length=15,blank=True)
     hoodpin = models.BooleanField(default=False)
-    hood = models.ForeignKey(Hood,related_name='home')
+    hood = models.ForeignKey(Hood,related_name='home',null=True)
 
     @receiver(post_save,sender=User)
     def create_user_profile(sender,instance,created,**kwargs):

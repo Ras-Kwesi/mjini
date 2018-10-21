@@ -87,7 +87,7 @@ def new_biz(request):
 @login_required(login_url='/accounts/login/')
 def newpost(request):
     current_user = request.user
-    hood = request.user.hood
+    hood = request.user.profile.hood
     if request.method == 'POST':
         newPostForm = NewPost(request.POST, request.FILES, instance=request.user)
         if newPostForm.is_valid():
