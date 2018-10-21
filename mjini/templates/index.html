@@ -2,5 +2,45 @@
 {% load bootstrap4 %}
 {% block content %}
 
+{% if hoods %}
+ {% for hood in hoods %}
+<div class="col-md-6 offset-md-3">
+    <div class="card border-warning mb-3">
+        <div class="card-header">{{hood.name}}</div>
+        <div class="card-body text-warning">
+            <!--<h1 class="card-title"></h1>-->
+            <p class="card-text">{{hood.bio}}</p>
+            <p class="card-text">Started by: {{hood.home}}</p>
 
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+{% for post in hood %}
+
+<div class="col-md-6 offset-md-3">
+    <div class="card border-warning mb-3">
+        <div class="card-header">{{post.title}}</div>
+        <div class="card-body text-warning">
+            <h1 class="card-title">{{post.postings}}</h1>
+            <p class="card-text">{{post.post}}</p>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
+
+{% else %}
+
+<h1>You're hood has no posts yet. Be the first to post</h1>
+{% endif %}
+
+
+
+
+{% endfor %}
+{% endif %}
 {% endblock %}
