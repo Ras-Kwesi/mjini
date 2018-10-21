@@ -10,14 +10,20 @@ from .forms import *
 def index(request):
     current_user = request.user
     if current_user.profile.hood is None:
-        hoods = Hood.objects.all()
+        # hoods = Hood.objects.all()
+        return redirect('communities')
     else:
-        hood_name = current_user.profile.hood
+        return redirect('hood')
 
 
     print(hood_name)
     return render(request,'index.html',{'hood_name':hood_name,'hoods':hoods})
 
+def communities(request):
+    current_user = request.user
+    hoods = Hood.objects.all()
+
+    return render(request,'communities.html',{'hoods':hoods})
 
 
 @login_required(login_url='/accounts/login/')
