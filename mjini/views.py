@@ -6,10 +6,13 @@ from .forms import *
 
 
 # Create your views here.
+@login_required(login_url='/accounts/login/')
 def index(request):
+    current_user = request.user
+    hood_name = current_user.profile.hood
 
-
-    return render(request,'index.html')
+    print(hood_name)
+    return render(request,'index.html',{'hood_name':hood_name})
 
 
 
@@ -47,12 +50,12 @@ def update(request):
     })
 
 @login_required(login_url='/accounts/login/')
-def hood(request,hood_name):
+def hood(request,hood_id):
     current_user = request.user
-    if current_user.profile.hood is None:
-        return redirect('update')
-    else:
-        hood = Post.get_hood_posts(hood_name = hood_name)
+    # if current_user.profile.hood is None:
+    #     return redirect('update')
+    # else:
+    hood = Post.get_hood_posts(id = hood_id)
 
     return render(request,'hood.html',{'hood':hood})
 
@@ -62,34 +65,6 @@ def choosehood(request):
     return render(request,'choosehood.html')
 
 
-@login_required(login_url='/accounts/login/')
-def newhood(request):
-    current_user = request.user
-    if request.method == 'POST':
-        NewHoodForm = NewHood(request.POST, request.FILES, instance=request.user)
-        if NewHoodForm.is_valid():
-            hoodform = NewHoodForm.save(commit=False)
-
-            hoodform.save()
-            current_user.profile.hoodpin = True
-            # request.session.modified = True
-            # current_user.profile.hood = hoodform.id
-        # return redirect('profilehood',hoodform.name)
-        return redirect('index')
-
-
-    else:
-        NewHoodForm = NewHood(instance=request.user,)
-    return render(request, 'newhood.html', {"newHoodForm": NewHoodForm})
-
-
-def profilehood(request,name):
-    current_user = request.user
-    hoodform = Hood.objects.get(name = name)
-    current_user.profile.hood = hoodform.id
-    current_user.profile.hoodpin = True
-
-    return redirect('index')
 
 @login_required(login_url='/accounts/login/')
 def search(request):
@@ -115,6 +90,7 @@ def newbiz(request):
         if addBizForm.is_valid():
             bizform = addBizForm.save(commit=False)
             bizform.owner = current_user
+            bizform.locale = current_user.profile.hood
             bizform.save()
         return redirect('index')
 
@@ -131,7 +107,7 @@ def newpost(request):
         newPostForm = NewPost(request.POST, request.FILES, instance=request.user)
         if newPostForm.is_valid():
             new_post = newPostForm.save(commit=False)
-            new_post.poster = current_user
+            new_post.poster = request.user
             new_post.hood = hood
             new_post.save()
         return redirect('index')
@@ -139,3 +115,33 @@ def newpost(request):
     else:
         newPostForm = NewPost(instance=request.user)
     return render(request, 'newpost.html', {"newPostForm": newPostForm})
+
+
+@login_required(login_url='/accounts/login/')
+def newhood(request):
+    current_user = request.user
+    if request.method == 'POST':
+        NewHoodForm = NewHood(request.POST, instance=request.user)
+        if NewHoodForm.is_valid():
+            hoodform = NewHoodForm.save(commit=False)
+            # current_user.profile.hoodpin = True
+            hoodform.save()
+
+            # request.session.modified = True
+            # current_user.profile.hood = hoodform.id
+        # return redirect('profilehood',hoodform.name)
+        return redirect('index')
+
+
+    else:
+        NewHoodForm = NewHood(instance=request.user,)
+    return render(request, 'newhood.html', {"newHoodForm": NewHoodForm})
+
+
+def profilehood(request,name):
+    current_user = request.user
+    hoodform = Hood.objects.get(name = name)
+    current_user.profile.hood = hoodform.id
+    current_user.profile.hoodpin = True
+
+    return redirect('index')

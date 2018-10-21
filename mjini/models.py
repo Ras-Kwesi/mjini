@@ -7,7 +7,7 @@ from django.db.models.signals import post_save
 # Create your models here.
 class Hood(models.Model):
     name = models.CharField(max_length=20,unique=True)
-    bio = models.CharField(max_length=40,default = name)
+    bio = models.CharField(max_length=40,default = '')
 
 
     def save_hood(self):
@@ -65,11 +65,11 @@ class Post(models.Model):
     title = models.CharField(max_length=30)
     post = models.TextField(max_length=100)
     hood = models.ForeignKey(Hood,related_name='hood')
-    poster = models.ForeignKey(User,related_name='poster')
+    poster = models.ForeignKey(User,on_delete=models.CASCADE)
 
     @classmethod
-    def get_hood_posts(cls,hood_name):
-        posts = Post.objects.filter(hood__name = hood_name )
+    def get_hood_posts(cls,id):
+        posts = Post.objects.filter(id = id )
         return posts
 
 class Business(models.Model):
