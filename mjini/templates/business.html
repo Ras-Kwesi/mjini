@@ -1,3 +1,20 @@
 {% extends 'base.html'%}
 {% load bootstrap4 %}
 {% block content %}
+
+
+
+<div class="col-md-6 offset-md-3">
+    <div class="card border-warning mb-3">
+        <div class="card-header">{{business.name}}</div>
+        <div class="card-body text-warning">
+            <h1 class="card-title">{{business.business_description}}</h1>
+            <p class="card-text">{{business.locale}}</p>
+            <p class="card-text">{{business.business_number}}</p>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

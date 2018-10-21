@@ -14,6 +14,6 @@ urlpatterns=[
     url('^newhood/$', views.newhood, name='newhood'),
     url('^profilehood/(\w+)$', views.profilehood, name='profilehood'),
     url('^choosehood/$',views.choosehood,name='choosehood'),
-    url('^business/', views.business, name='business'),
+    url('^business/(\w+)$', views.business, name='business'),
 
 ]

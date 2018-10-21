@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42e3d8c3-d9f0-4d5e-b00f-5d044166b709" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mjini/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mjini/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mjini/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/mjini/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mjini/templates/business.html" beforeDir="false" afterPath="$PROJECT_DIR$/mjini/templates/business.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,27 +25,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="html" value="22" />
+          <entry key="html" value="23" />
           <entry key="py" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="22" />
+          <entry key="HTML" value="23" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Python" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="881" />
-          <entry key="py" value="2790" />
+          <entry key="html" value="926" />
+          <entry key="py" value="2908" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="881" />
-          <entry key="Python" value="2790" />
+          <entry key="HTML" value="926" />
+          <entry key="Python" value="2908" />
         </counts>
       </usages-collector>
     </session>
@@ -86,8 +85,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mjini/templates/hood.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="12" selection-start-column="12" selection-end-column="12" />
+                <state relative-caret-position="255">
+                  <caret line="17" column="6" lean-forward="true" selection-start-line="9" selection-end-line="17" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -110,19 +109,28 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mjini/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-645">
-                  <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+                <state relative-caret-position="225">
+                  <caret line="72" column="62" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
                   <folding>
                     <element signature="e#0#44#0" expanded="true" />
-                    <marker date="1540134623181" expanded="true" signature="305:306" ph="..." />
-                    <marker date="1540134623181" expanded="true" signature="305:375" ph="..." />
-                    <marker date="1540134623181" expanded="true" signature="1986:2033" ph="..." />
-                    <marker date="1540134623181" expanded="true" signature="2033:2035" ph="..." />
-                    <marker date="1540134623181" expanded="true" signature="2680:2681" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="305:306" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="305:375" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="1986:2218" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="2218:2220" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="2865:2866" ph="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/mjini/templates/business.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
@@ -151,15 +159,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mjini/__init__.py">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mjini/templates/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state>
-                  <caret selection-end-line="1" />
+                  <caret lean-forward="true" selection-end-line="2" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -189,8 +192,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mjini/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+                <state relative-caret-position="240">
+                  <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
                   <folding>
                     <element signature="e#0#32#0" expanded="true" />
                   </folding>
@@ -211,14 +214,14 @@
             <entry file="file://$PROJECT_DIR$/mjini/views.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1005">
-                  <caret line="110" column="42" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
+                  <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#44#0" expanded="true" />
-                    <marker date="1540134623181" expanded="true" signature="305:306" ph="..." />
-                    <marker date="1540134623181" expanded="true" signature="305:375" ph="..." />
-                    <marker date="1540134623181" expanded="true" signature="1986:2033" ph="..." />
-                    <marker date="1540134623181" expanded="true" signature="2033:2035" ph="..." />
-                    <marker date="1540134623181" expanded="true" signature="2680:2681" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="305:306" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="305:375" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="1986:2218" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="2218:2220" ph="..." />
+                    <marker date="1540135312009" expanded="true" signature="2865:2866" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -239,8 +242,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mjini/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="483">
-                  <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
+                <state relative-caret-position="378">
+                  <caret line="80" column="19" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="19" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
@@ -295,11 +298,12 @@
         <option value="$PROJECT_DIR$/mjini/admin.py" />
         <option value="$PROJECT_DIR$/mjini/forms.py" />
         <option value="$PROJECT_DIR$/mjini/templates/update_profile.html" />
-        <option value="$PROJECT_DIR$/mjini/urls.py" />
-        <option value="$PROJECT_DIR$/mjini/views.py" />
         <option value="$PROJECT_DIR$/mjini/templates/navbar.html" />
         <option value="$PROJECT_DIR$/mjini/models.py" />
         <option value="$PROJECT_DIR$/mjini/templates/search.html" />
+        <option value="$PROJECT_DIR$/mjini/urls.py" />
+        <option value="$PROJECT_DIR$/mjini/views.py" />
+        <option value="$PROJECT_DIR$/mjini/templates/business.html" />
       </list>
     </option>
   </component>
@@ -447,7 +451,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/mjini/views.py</url>
-          <line>110</line>
+          <line>117</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -527,20 +531,6 @@
     <entry file="file://$PROJECT_DIR$/mjini/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/mjini/templates/add_business.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mjini/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mjini/templates/newhood.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -581,13 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mjini/templates/hood.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hood/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-30">
@@ -602,31 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mjini/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mjini/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="110" column="42" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-            <marker date="1540134623181" expanded="true" signature="305:306" ph="..." />
-            <marker date="1540134623181" expanded="true" signature="305:375" ph="..." />
-            <marker date="1540134623181" expanded="true" signature="1986:2033" ph="..." />
-            <marker date="1540134623181" expanded="true" signature="2033:2035" ph="..." />
-            <marker date="1540134623181" expanded="true" signature="2680:2681" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mjini/templates/navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -637,10 +595,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mjini/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mjini/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+            <marker date="1540135312009" expanded="true" signature="305:306" ph="..." />
+            <marker date="1540135312009" expanded="true" signature="305:375" ph="..." />
+            <marker date="1540135312009" expanded="true" signature="1986:2218" ph="..." />
+            <marker date="1540135312009" expanded="true" signature="2218:2220" ph="..." />
+            <marker date="1540135312009" expanded="true" signature="2865:2866" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mjini/templates/add_business.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mjini/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mjini/templates/hood.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="9" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mjini/templates/business.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mjini/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
+        <state relative-caret-position="378">
+          <caret line="80" column="19" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="19" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
