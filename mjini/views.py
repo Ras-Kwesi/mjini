@@ -52,6 +52,24 @@ def hood(request,hood_name):
 
     return render(request,'hood.html',{'hood':hood})
 
+
+@login_required(login_url='/accounts/login/')
+def new_hood(request):
+    current_user = request.user
+    if request.method == 'POST':
+        NewHoodForm = NewHood(request.POST, request.FILES, instance=request.user)
+        if NewHoodForm.is_valid():
+            hoodform = NewHoodForm.save(commit=False)
+            current_user.profile.hood = hoodform.id
+            current_user.profile.hoodpin = True
+            hoodform.save()
+        return redirect('index')
+
+    else:
+        NewHoodForm = NewHood(instance=request.user,)
+    return render(request, 'add_business.html', {"newHoodForm": NewHoodForm})
+
+
 @login_required(login_url='/accounts/login/')
 def search(request):
 
