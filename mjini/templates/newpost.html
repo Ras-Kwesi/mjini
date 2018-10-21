@@ -20,7 +20,7 @@
 {% block content %}
 <body>
 
-  <form  action="{% url 'addbiz'%}" method="post" enctype="multipart/form-data">
+  <form  action="{% url 'newpost'%}" method="post" enctype="multipart/form-data">
     {% csrf_token%}
 
     {% bootstrap_form newPostForm %}

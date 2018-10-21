@@ -9,7 +9,10 @@ urlpatterns=[
     url('profile/$', views.profile, name='profile'),
     url('^hood/(\w+)', views.hood, name='hood'),
     url('update/$', views.update, name='update'),
-    url('addbiz/$', views.new_biz, name='addbiz'),
+    url('addbiz/$', views.newbiz, name='addbiz'),
     url('newpost/$', views.newpost, name='newpost'),
+    url('newhood/$', views.newhood, name='newhood'),
+    url('profilehood/(\w+)$', views.profilehood, name='profilehood'),
+    url('choosehood/',views.choosehood,name='choosehood'),
 
 ]

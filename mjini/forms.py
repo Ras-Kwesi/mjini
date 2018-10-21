@@ -5,7 +5,7 @@ class EditProfile(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = []
-        fields = ['profilepic','bio','contact']
+        fields = ['profilepic','bio','contact','hood']
 
 class EditUser(forms.ModelForm):
     class Meta:
@@ -23,10 +23,10 @@ class AddBusiness(forms.ModelForm):
 class NewPost(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ['hood','poster']
+        exclude = ['hood', 'poster']
 
 
 class NewHood(forms.ModelForm):
     class Meta:
         model = Hood
-        exclude = []
+        fields = ['name', 'bio']

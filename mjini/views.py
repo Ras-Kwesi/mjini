@@ -48,27 +48,48 @@ def update(request):
 
 @login_required(login_url='/accounts/login/')
 def hood(request,hood_name):
-    hood = Post.get_hood_posts(hood_name = hood_name)
+    current_user = request.user
+    if current_user.profile.hood is None:
+        return redirect('update')
+    else:
+        hood = Post.get_hood_posts(hood_name = hood_name)
 
     return render(request,'hood.html',{'hood':hood})
 
 
 @login_required(login_url='/accounts/login/')
-def new_hood(request):
+def choosehood(request):
+    return render(request,'choosehood.html')
+
+
+@login_required(login_url='/accounts/login/')
+def newhood(request):
     current_user = request.user
     if request.method == 'POST':
         NewHoodForm = NewHood(request.POST, request.FILES, instance=request.user)
         if NewHoodForm.is_valid():
             hoodform = NewHoodForm.save(commit=False)
-            current_user.profile.hood = hoodform.id
-            current_user.profile.hoodpin = True
+
             hoodform.save()
+            current_user.profile.hoodpin = True
+            # request.session.modified = True
+            # current_user.profile.hood = hoodform.id
+        # return redirect('profilehood',hoodform.name)
         return redirect('index')
+
 
     else:
         NewHoodForm = NewHood(instance=request.user,)
-    return render(request, 'add_business.html', {"newHoodForm": NewHoodForm})
+    return render(request, 'newhood.html', {"newHoodForm": NewHoodForm})
 
+
+def profilehood(request,name):
+    current_user = request.user
+    hoodform = Hood.objects.get(name = name)
+    current_user.profile.hood = hoodform.id
+    current_user.profile.hoodpin = True
+
+    return redirect('index')
 
 @login_required(login_url='/accounts/login/')
 def search(request):
@@ -87,7 +108,7 @@ def search(request):
         return render(request, 'search.html',{"message":message})
 
 @login_required(login_url='/accounts/login/')
-def new_biz(request):
+def newbiz(request):
     current_user = request.user
     if request.method == 'POST':
         addBizForm = AddBusiness(request.POST, request.FILES, instance=request.user)
