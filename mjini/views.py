@@ -86,7 +86,7 @@ def search(request):
 def newbiz(request):
     current_user = request.user
     if request.method == 'POST':
-        addBizForm = AddBusiness(request.POST, request.FILES, instance=request.user)
+        addBizForm = AddBusiness(request.POST, request.FILES)
         if addBizForm.is_valid():
             bizform = addBizForm.save(commit=False)
             bizform.owner = current_user
@@ -95,7 +95,7 @@ def newbiz(request):
         return redirect('index')
 
     else:
-        addBizForm = AddBusiness(instance=request.user,)
+        addBizForm = AddBusiness()
     return render(request, 'add_business.html', {"addBusinessForm": addBizForm})
 
 
@@ -104,7 +104,7 @@ def newpost(request):
     current_user = request.user
     hood = request.user.profile.hood
     if request.method == 'POST':
-        newPostForm = NewPost(request.POST, request.FILES, instance=request.user)
+        newPostForm = NewPost(request.POST, request.FILES)
         if newPostForm.is_valid():
             new_post = newPostForm.save(commit=False)
             new_post.poster = request.user
@@ -113,7 +113,7 @@ def newpost(request):
         return redirect('index')
 
     else:
-        newPostForm = NewPost(instance=request.user)
+        newPostForm = NewPost()
     return render(request, 'newpost.html', {"newPostForm": newPostForm})
 
 
@@ -121,11 +121,12 @@ def newpost(request):
 def newhood(request):
     current_user = request.user
     if request.method == 'POST':
-        NewHoodForm = NewHood(request.POST, instance=request.user)
+        NewHoodForm = NewHood(request.POST)
         if NewHoodForm.is_valid():
             hoodform = NewHoodForm.save(commit=False)
             # current_user.profile.hoodpin = True
             hoodform.save()
+            print('saved')
 
             # request.session.modified = True
             # current_user.profile.hood = hoodform.id
@@ -134,7 +135,7 @@ def newhood(request):
 
 
     else:
-        NewHoodForm = NewHood(instance=request.user,)
+        NewHoodForm = NewHood()
     return render(request, 'newhood.html', {"newHoodForm": NewHoodForm})
 
 
