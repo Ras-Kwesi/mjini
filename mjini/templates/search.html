@@ -22,7 +22,7 @@
         <p class="card-header">{{business.business_description | truncatechars:30}}</p>
         <p class="card-text">{{business.locale}}</p>
 
-        <a href="/business/{{business.id}}">View Business Posts</a>
+        <a class="btn btn-success" href="/business/{{business.id}}">View Business Posts</a>
           <div class="card-footer bg-transparent border-danger">
                 <p>{{business.business_number}}</p>
             </div>

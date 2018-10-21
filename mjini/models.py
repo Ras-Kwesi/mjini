@@ -85,5 +85,5 @@ class Business(models.Model):
 
     @classmethod
     def get_business(cls, name):
-        business = Business.objects.get(name=name)
+        business = Business.objects.filter(name=name)
         return business

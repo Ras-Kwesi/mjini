@@ -66,6 +66,13 @@ def choosehood(request):
     return render(request,'choosehood.html')
 
 
+@login_required(login_url='/accounts/login/')
+def business(request,id):
+    business = Business.objects.get(id = id)
+
+    return render(request,'business.html',{'business':business})
+
+
 
 @login_required(login_url='/accounts/login/')
 def search(request):
