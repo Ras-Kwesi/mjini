@@ -69,7 +69,7 @@ class Post(models.Model):
 
     @classmethod
     def get_hood_posts(cls,id):
-        posts = Post.objects.filter(id = id )
+        posts = Post.objects.filter(id = id)
         return posts
 
 class Business(models.Model):

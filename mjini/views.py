@@ -11,6 +11,7 @@ def index(request):
     current_user = request.user
     hood_name = current_user.profile.hood
 
+
     print(hood_name)
     return render(request,'index.html',{'hood_name':hood_name})
 
