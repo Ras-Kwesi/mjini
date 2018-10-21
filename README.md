@@ -7,20 +7,26 @@ A web application where users create profile linked to a community through which
 ## User Requirements
 
 1. Create profile and modify and access profile.
-2. Upload my pictures to ap through the profile.
-3. View personal pictures on Profile page.
-4. Follow other users as they follow you.
-5. Interact with pictures through likin them and commenting.
+2. Signup to a Community.
+3. View community posts on home page.
+4. Create Business posts and View social services.
+5. Search for business and their details.
+6. Create new Neigbour hoods and be the Administrator.
+
+
 
 ## Models
-### Project 
-* Properties: Project Name, Project Information, Images(3), Profile FK, Likes, URL.
+### Post 
+* Properties: Title, Description, Hood FK, Poster FK.
 
 ### Profile 
 * Properties: Profile Picture, Bio, location, Django User Relationship, Contact
 
-### Vote
-* Properties: Design Vote, Usability Vote, Content Vote, Creativity Vote.
+### Business
+* Properties: Name, Owner FK , Description, Number. Locale FK
+
+### Hood
+* Properties: Name, Bio
 
 
 ## Admin Dashboard
@@ -35,7 +41,7 @@ This project was created on a debian linux platform but should work on other uni
 
 ### Cloning the repository
 ```bash
-git clone https://github.com/Ras-Kwesi/ranker.git && cd ranker
+git clone https://github.com/Ras-Kwesi/mjini.git && cd mjini
 ```
 
 ### Creating a virtual environment
@@ -79,7 +85,7 @@ python manage.py runserver
 ```
 ## Contributing
 
-- Git clone [https://github.com/Ras-Kwesi/ranker.git](https://github.com/Ras-Kwesi/ranker.git) 
+- Git clone [https://github.com/Ras-Kwesi/mjini.git](https://github.com/Ras-Kwesi/mjini.git) 
 - Make the changes.
 - Write your tests.
 - If everything is OK. push your changes and make a pull request.
