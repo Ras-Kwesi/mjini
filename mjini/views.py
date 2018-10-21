@@ -87,11 +87,13 @@ def new_biz(request):
 @login_required(login_url='/accounts/login/')
 def newpost(request):
     current_user = request.user
+    hood = request.user.hood
     if request.method == 'POST':
         newPostForm = NewPost(request.POST, request.FILES, instance=request.user)
         if newPostForm.is_valid():
             new_post = newPostForm.save(commit=False)
             new_post.poster = current_user
+            new_post.hood = hood
             new_post.save()
         return redirect('index')
 

@@ -23,4 +23,4 @@ class AddBusiness(forms.ModelForm):
 class NewPost(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = [,'poster']
+        exclude = ['hood','poster']
