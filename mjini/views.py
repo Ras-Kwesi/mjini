@@ -9,15 +9,15 @@ from .forms import *
 @login_required(login_url='/accounts/login/')
 def index(request):
     current_user = request.user
+    hood_name = current_user.profile.hood
     if current_user.profile.hood is None:
         # hoods = Hood.objects.all()
         return redirect('communities')
-    else:
-        return redirect('hood')
+
+    posts = Post.objects.all()
 
 
-    print(hood_name)
-    return render(request,'index.html',{'hood_name':hood_name,'hoods':hoods})
+    return render(request,'index.html',{'posts':posts,'hood_name':hood_name})
 
 def communities(request):
     current_user = request.user
