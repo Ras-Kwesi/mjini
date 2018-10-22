@@ -202,6 +202,7 @@ def join(request,id):
     current_user = request.user
     hood_name = current_user.profile.hood
     hood = Hood.objects.get(id=id)
-    current_user.profile.hood = hood.id
+    current_user.profile.hood = hood
+    current_user.profile.save()
 
     return redirect('index')
