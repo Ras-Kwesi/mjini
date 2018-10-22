@@ -24,6 +24,7 @@ class Hood(models.Model):
 
 
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     bio = models.TextField(max_length=100, blank=True)
@@ -69,6 +70,13 @@ class Post(models.Model):
     hood = models.ForeignKey(Hood,related_name='hood')
     poster = models.ForeignKey(User,on_delete=models.CASCADE)
 
+
+    def save_post(self):
+        self.save()
+
+    def remove_post(self):
+        self.delete()
+
     @classmethod
     def get_hood_posts(cls,id):
         posts = Post.objects.filter(id = id)
@@ -93,10 +101,18 @@ class Business(models.Model):
     # category = models.CharField(max_length=20)
     business_number = models.IntegerField(default=0)
 
+
     def save_business(self):
         self.save()
+
+
+    def delete_business(self):
+        self.delete()
+
 
     @classmethod
     def get_business(cls, name):
         business = Business.objects.filter(name=name)
         return business
+
+    # def update_business(self,id):
