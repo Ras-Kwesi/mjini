@@ -17,5 +17,6 @@ urlpatterns=[
     url('^business/(\w+)$', views.business, name='business'),
     url('^communities/$',views.communities,name='communities'),
     url('^comment/(\d+)', views.comment, name='comment'),
+    url('^join/(\d+)', views.join, name='join'),
 
 ]
