@@ -30,3 +30,9 @@ class NewHood(forms.ModelForm):
     class Meta:
         model = Hood
         fields = ['name', 'bio']
+
+
+class NewComment(forms.ModelForm):
+    class Meta:
+        model = Comment
+        exclude = ['commentator','comment_post']

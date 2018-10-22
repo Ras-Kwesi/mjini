@@ -8,7 +8,7 @@ from django.db.models.signals import post_save
 class Hood(models.Model):
     name = models.CharField(max_length=20,unique=True)
     bio = models.CharField(max_length=40,default = '')
-
+    admin = models.ForeignKey(User,related_name='administrate')
 
     def save_hood(self):
         self.save()
@@ -44,6 +44,8 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+
+
 # class Hood(models.Model):
 #     name = models.CharField(max_length=20,unique=True)
 #     residents = models.IntegerField(default=1)
@@ -71,6 +73,17 @@ class Post(models.Model):
     def get_hood_posts(cls,id):
         posts = Post.objects.filter(id = id)
         return posts
+
+class Comment(models.Model):
+    comment = models.CharField(max_length=100)
+    commentator = models.ForeignKey(User)
+    comment_post = models.ForeignKey(Post,related_name='comment',null=True)
+
+    def save_comment(self):
+        self.save()
+
+    def delete_comment(self):
+        self.delete()
 
 class Business(models.Model):
     name = models.CharField(max_length=20)

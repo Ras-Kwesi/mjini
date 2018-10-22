@@ -9,10 +9,25 @@
 
 <div class="col-md-6 offset-md-3">
     <div class="card border-warning mb-3">
-        <div class="card-header">{{post.title}}</div>
-        <div class="card-body text-warning">
-            <h1 class="card-title">{{post.postings}}</h1>
+        <div class="card-header text-warning">{{post.title}}</div>
+        <div class="card-body text-danger">
+            <h1 class="card-title ">{{post.postings}}</h1>
             <p class="card-text">{{post.post}}</p>
+            {% for comment in post.comment.all %}
+            <p class = "card-text text-success"><strong>{{comment.commentator.username}}</strong>: {{comment.comment}}</p>
+            {% endfor %}
+            <div class="card-footer bg-transparent border-warning">
+            <form  action="/comment/{{post.id}}" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+
+                {% bootstrap_form comment_form %}
+                <input type="submit" class="btn btn-success btn-lg" value="Post">
+            </form>
+
+            {% block scripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            {% bootstrap_javascript %} {% endblock %}
+            </div>
         </div>
     </div>
 </div>

@@ -63,6 +63,19 @@ def update(request):
         'hood_name': hood_name
     })
 
+def comment(request,id):
+    post = Post.objects.get(id=id)
+    print(id)
+    if request.method == 'POST':
+        comm=NewComment(request.POST)
+        if comm.is_valid():
+            comment=comm.save(commit=False)
+            comment.commentator = request.user
+            comment.comment_post = post
+            comment.save()
+            return redirect('index')
+    return redirect('index')
+
 @login_required(login_url='/accounts/login/')
 def hood(request,hood_id):
     current_user = request.user
@@ -71,8 +84,12 @@ def hood(request,hood_id):
     #     return redirect('update')
     # else:
     hood = Post.get_hood_posts(id = hood_id)
+    comments = Comment.objects.all()
+    form = NewComment(instance=request.user)
 
-    return render(request,'hood.html',{'hood':hood,'hood_name':hood_name})
+    return render(request,'hood.html',{'hood':hood,'hood_name':hood_name,'comments':comments,'comment_form':form})
+
+
 
 
 @login_required(login_url='/accounts/login/')
@@ -82,9 +99,11 @@ def choosehood(request):
 
 @login_required(login_url='/accounts/login/')
 def business(request,id):
-    business = Business.objects.get(id = id)
+    current_user = request.user
+    businessing = Business.objects.get(id = id)
+    hood_name = current_user.profile.hood
 
-    return render(request,'business.html',{'business':business,'hood_name':hood_name})
+    return render(request,'business.html',{'business':businessing,'hood_name':hood_name})
 
 
 
@@ -153,7 +172,8 @@ def newhood(request):
         NewHoodForm = NewHood(request.POST)
         if NewHoodForm.is_valid():
             hoodform = NewHoodForm.save(commit=False)
-            # current_user.profile.hoodpin = True
+            hoodform.admin = current_user
+            current_user.profile.hoodpin = True
             hoodform.save()
             print('saved')
 
@@ -175,5 +195,13 @@ def profilehood(request,name):
     hoodform = Hood.objects.get(name = name)
     current_user.profile.hood = hoodform.id
     current_user.profile.hoodpin = True
+
+    return redirect('index')
+
+def join(request,id):
+    current_user = request.user
+    hood_name = current_user.profile.hood
+    hood = Hood.objects.get(id=id)
+    current_user.profile.hood =
 
     return redirect('index')

@@ -16,5 +16,6 @@ urlpatterns=[
     url('^choosehood/$',views.choosehood,name='choosehood'),
     url('^business/(\w+)$', views.business, name='business'),
     url('^communities/$',views.communities,name='communities'),
+    url('^comment/(\d+)', views.comment, name='comment'),
 
 ]
